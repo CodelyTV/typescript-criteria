@@ -1,4 +1,4 @@
-import { Filter, Filters } from "@codely-criteria/criteria";
+import { Filter, Filters } from "@codely/criteria";
 
 import { FilterMother } from "./FilterMother";
 

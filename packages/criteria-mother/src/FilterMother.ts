@@ -1,4 +1,4 @@
-import { Filter, FiltersPrimitives, Operator } from "@codely-criteria/criteria";
+import { Filter, FiltersPrimitives, Operator } from "@codely/criteria";
 import { faker } from "@faker-js/faker";
 
 export class FilterMother {

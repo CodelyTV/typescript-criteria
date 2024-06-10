@@ -29,7 +29,7 @@ importers:
 
   packages/criteria-mother:
     dependencies:
-      '@codely-criteria/criteria':
+      '@codely/criteria':
         specifier: workspace:*
         version: link:../criteria
       '@faker-js/faker':
@@ -38,11 +38,11 @@ importers:
 
   packages/criteria-mysql:
     dependencies:
-      '@codely-criteria/criteria':
+      '@codely/criteria':
         specifier: workspace:*
         version: link:../criteria
     devDependencies:
-      '@codely-criteria/mother':
+      '@codely/criteria-mother':
         specifier: workspace:*
         version: link:../criteria-mother
 

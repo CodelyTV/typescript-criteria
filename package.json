@@ -1,5 +1,5 @@
 {
-	"name": "@codely-criteria/codely-criteria",
+	"name": "@codely/criteria-monorepo",
 	"private": true,
 	"version": "1.0.0",
 	"engines": {

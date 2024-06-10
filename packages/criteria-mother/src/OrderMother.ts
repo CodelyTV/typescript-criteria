@@ -1,4 +1,4 @@
-import { Order, OrderTypes } from "@codely-criteria/criteria";
+import { Order, OrderTypes } from "@codely/criteria";
 import { faker } from "@faker-js/faker";
 
 type OrderPrimitives = {

@@ -1,7 +1,7 @@
 import assert from "node:assert";
 import { describe, it } from "node:test";
 
-import { CriteriaMother } from "@codely-criteria/mother";
+import { CriteriaMother } from "@codely/criteria-mother";
 
 import { CriteriaToMySqlConverter } from "../src";
 
