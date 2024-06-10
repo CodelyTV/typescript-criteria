@@ -11,7 +11,8 @@
 	],
 	"scripts": {
 		"test": "pnpm -r run test",
-		"build": "pnpm -r run build"
+		"build": "pnpm -r run build",
+		"release": "pnpm run build & pnpm changeset publish"
 	},
 	"devDependencies": {
 		"@changesets/cli": "^2.27.5",
