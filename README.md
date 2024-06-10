@@ -38,7 +38,7 @@ You can also create your custom transformer.
 3. When the Pull Request is merged, a new release will be triggered, affecting only the modified packages.
 
 If you want to merge a code without a changeset (for example, a Readme or test modification) you should execute
-`changeset --empty` in your Pull Request before merging it.
+`pnpm changeset --empty` in your Pull Request before merging it.
 
 ## ✅ Testing
 To facilitate testing of the criteria, you can use the provided [object mothers](https://www.martinfowler.com/bliki/ObjectMother.html):
