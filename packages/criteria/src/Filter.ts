@@ -31,7 +31,7 @@ export class Filter {
 		return {
 			field: this.field.value,
 			operator: this.operator.value,
-			value: this.operator.value,
+			value: this.value.value,
 		};
 	}
 }

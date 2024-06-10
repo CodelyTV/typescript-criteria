@@ -1,8 +1,10 @@
 export enum Operator {
 	EQUAL = "=",
 	NOT_EQUAL = "!=",
-	GT = ">",
-	LT = "<",
+	GREATER_THAN = ">",
+	GREATER_THAN_OR_EQUAL = ">=",
+	LOWER_THAN = "<",
+	LOWER_THAN_OR_EQUAL = "<=",
 	CONTAINS = "CONTAINS",
 	NOT_CONTAINS = "NOT_CONTAINS",
 }
