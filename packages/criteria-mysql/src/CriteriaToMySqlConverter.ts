@@ -62,6 +62,18 @@ export class CriteriaToMySqlConverter {
 		} else if (filter.operator.isNotEquals()) {
 			queryPart += "!= ?";
 			params.push(value);
+		} else if (filter.operator.isGreaterThan()) {
+			queryPart += "> ?";
+			params.push(value);
+		} else if (filter.operator.isGreaterThanOrEqual()) {
+			queryPart += ">= ?";
+			params.push(value);
+		} else if (filter.operator.isLowerThan()) {
+			queryPart += "< ?";
+			params.push(value);
+		} else if (filter.operator.isLowerThanOrEqual()) {
+			queryPart += "<= ?";
+			params.push(value);
 		} else {
 			queryPart += `${filter.operator.value} ?`;
 			params.push(value);

@@ -40,6 +40,58 @@ describe("CriteriaToMySqlConverter should", () => {
 		});
 	});
 
+	it("Generate select with one greater than filter", () => {
+		const actualQuery = converter.convert(
+			["id", "age"],
+			"users",
+			CriteriaMother.withOneFilter("age", "GREATER_THAN", "25"),
+		);
+
+		assert.deepEqual(actualQuery, {
+			query: "SELECT id, age FROM users WHERE age > ?;",
+			params: [25],
+		});
+	});
+
+	it("Generate select with one greater than or equal filter", () => {
+		const actualQuery = converter.convert(
+			["id", "age"],
+			"users",
+			CriteriaMother.withOneFilter("age", "GREATER_THAN_OR_EQUAL", "25"),
+		);
+
+		assert.deepEqual(actualQuery, {
+			query: "SELECT id, age FROM users WHERE age >= ?;",
+			params: [25],
+		});
+	});
+
+	it("Generate select with one lower than filter", () => {
+		const actualQuery = converter.convert(
+			["id", "age"],
+			"users",
+			CriteriaMother.withOneFilter("age", "LOWER_THAN", "18"),
+		);
+
+		assert.deepEqual(actualQuery, {
+			query: "SELECT id, age FROM users WHERE age < ?;",
+			params: [18],
+		});
+	});
+
+	it("Generate select with one lower than or equal filter", () => {
+		const actualQuery = converter.convert(
+			["id", "age"],
+			"users",
+			CriteriaMother.withOneFilter("age", "LOWER_THAN_OR_EQUAL", "18"),
+		);
+
+		assert.deepEqual(actualQuery, {
+			query: "SELECT id, age FROM users WHERE age <= ?;",
+			params: [18],
+		});
+	});
+
 	it("Generate select with one filter sorted", () => {
 		const actualQuery = converter.convert(
 			["id", "name"],
