@@ -23,4 +23,20 @@ export class FilterOperator {
 	isNotEquals(): boolean {
 		return this.value.valueOf() === Operator.NOT_EQUAL.valueOf();
 	}
+
+	isGreaterThan(): boolean {
+		return this.value.valueOf() === Operator.GREATER_THAN.valueOf();
+	}
+
+	isGreaterThanOrEqual(): boolean {
+		return this.value.valueOf() === Operator.GREATER_THAN_OR_EQUAL.valueOf();
+	}
+
+	isLowerThan(): boolean {
+		return this.value.valueOf() === Operator.LOWER_THAN.valueOf();
+	}
+
+	isLowerThanOrEqual(): boolean {
+		return this.value.valueOf() === Operator.LOWER_THAN_OR_EQUAL.valueOf();
+	}
 }
