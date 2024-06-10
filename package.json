@@ -1,6 +1,5 @@
 {
 	"name": "@codely/criteria-monorepo",
-	"version": "1.0.0",
 	"private": true,
 	"author": "Codely (www.codely.com)",
 	"license": "SEE LICENSE IN LICENSE",
@@ -15,9 +14,10 @@
 		"build": "pnpm -r run build"
 	},
 	"devDependencies": {
+		"@changesets/cli": "^2.27.5",
+		"@types/node": "^20.0.0",
 		"eslint-config-codely": "^3.1.4",
-		"typescript": "^5.3.3",
 		"tsx": "^4.13.2",
-		"@types/node": "^20.0.0"
+		"typescript": "^5.3.3"
 	}
 }

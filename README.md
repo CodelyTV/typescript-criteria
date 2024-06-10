@@ -16,7 +16,7 @@
     <a href="https://github.com/CodelyTV"><img src="https://img.shields.io/badge/Codely-OS-green.svg?style=flat-square" alt="codely.com"/></a>
 </p>
 
-## 💻 Installation
+## 📥 Installation
 
 To install the base criteria dependency, run the following command:
 ```sh
@@ -29,9 +29,12 @@ Then, install the preferred criteria transformer:
 
 You can also create your custom transformer.
 
-## 🚀 Usage
+## 💻 Usage
 
+## 🚀 Release
 
+At the end of every Pull Request you should execute `pnpm changeset` in order to add the changes to the changelog.
+This will control the versioning and then will release the package.
 
 ## ✅ Testing
 To facilitate testing of the criteria, you can use the provided [object mothers](https://www.martinfowler.com/bliki/ObjectMother.html):
