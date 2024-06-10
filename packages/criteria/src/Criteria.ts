@@ -30,6 +30,10 @@ export class Criteria {
 		);
 	}
 
+	static withFilters(filters: FiltersPrimitives[]): Criteria {
+		return Criteria.fromPrimitives(filters, null, null, null, null);
+	}
+
 	hasOrder(): boolean {
 		return !this.order.isNone();
 	}
