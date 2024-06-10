@@ -2,15 +2,15 @@
 	"name": "@codely/criteria-mysql",
 	"version": "1.0.0",
 	"description": "",
+	"keywords": [],
+	"author": "Codely (www.codely.com)",
+	"license": "SEE LICENSE IN LICENSE",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"scripts": {
 		"test": "node --import tsx --test test/*.test.ts",
 		"build": "tsc --build --verbose tsconfig.json"
 	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
 	"dependencies": {
 		"@codely/criteria": "workspace:*"
 	},

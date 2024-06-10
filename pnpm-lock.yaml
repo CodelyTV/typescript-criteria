@@ -9,7 +9,7 @@ importers:
   .:
     devDependencies:
       '@types/node':
-        specifier: '20'
+        specifier: ^20.0.0
         version: 20.14.2
       eslint-config-codely:
         specifier: ^3.1.4

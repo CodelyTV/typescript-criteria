@@ -16,8 +16,8 @@
     <a href="https://github.com/CodelyTV"><img src="https://img.shields.io/badge/Codely-OS-green.svg?style=flat-square" alt="codely.com"/></a>
 </p>
 
-## 🚀 Usage
+## 💻 Installation
 
 ```sh
-npm i @codely/criteria-mother
+npm i @codely/criteria-mother -D
 ```
