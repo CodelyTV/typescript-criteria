@@ -1,5 +1,5 @@
 {
-	"name": "@codely/criteria-mother",
+	"name": "@codelytv/criteria-mother",
 	"version": "1.0.0",
 	"description": "",
 	"keywords": [],
@@ -11,7 +11,7 @@
 		"build": "tsc --build --verbose tsconfig.json"
 	},
 	"dependencies": {
-		"@codely/criteria": "workspace:*",
+		"@codelytv/criteria": "workspace:*",
 		"@faker-js/faker": "^8.3.1"
 	}
 }

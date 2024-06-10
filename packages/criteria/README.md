@@ -19,5 +19,5 @@
 ## 📥 Installation
 
 ```sh
-npm i @codely/criteria
+npm i @codelytv/criteria
 ```

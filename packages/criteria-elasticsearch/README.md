@@ -19,5 +19,5 @@
 ## 📥 Installation
 
 ```sh
-npm i @codely/criteria-elasticsearch
+npm i @codelytv/criteria-elasticsearch
 ```

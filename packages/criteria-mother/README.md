@@ -19,5 +19,5 @@
 ## 📥 Installation
 
 ```sh
-npm i @codely/criteria-mother -D
+npm i @codelytv/criteria-mother -D
 ```

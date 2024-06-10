@@ -32,17 +32,17 @@ importers:
 
   packages/criteria-elasticsearch:
     dependencies:
-      '@codely/criteria':
+      '@codelytv/criteria':
         specifier: workspace:*
         version: link:../criteria
     devDependencies:
-      '@codely/criteria-mother':
+      '@codelytv/criteria-mother':
         specifier: workspace:*
         version: link:../criteria-mother
 
   packages/criteria-mother:
     dependencies:
-      '@codely/criteria':
+      '@codelytv/criteria':
         specifier: workspace:*
         version: link:../criteria
       '@faker-js/faker':
@@ -51,11 +51,11 @@ importers:
 
   packages/criteria-mysql:
     dependencies:
-      '@codely/criteria':
+      '@codelytv/criteria':
         specifier: workspace:*
         version: link:../criteria
     devDependencies:
-      '@codely/criteria-mother':
+      '@codelytv/criteria-mother':
         specifier: workspace:*
         version: link:../criteria-mother
 

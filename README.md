@@ -20,7 +20,7 @@
 
 To install the base criteria dependency, run the following command:
 ```sh
-npm i @codely/criteria
+npm i @codelytv/criteria
 ```
 
 Then, install the preferred criteria transformer:
@@ -33,12 +33,17 @@ You can also create your custom transformer.
 
 ## 🚀 Release
 
+### Existing packages
+
 At the end of every Pull Request you should execute `pnpm changeset` in order to add the changes to the changelog.
 This will control the versioning and then will release the package.
+
+### New packages
+First you need to `cd` to its directory and execute `npm publish`
 
 ## ✅ Testing
 To facilitate testing of the criteria, you can use the provided [object mothers](https://www.martinfowler.com/bliki/ObjectMother.html):
 
 ```sh
-npm i @codely/criteria-mother -D
+npm i @codelytv/criteria-mother -D
 ```

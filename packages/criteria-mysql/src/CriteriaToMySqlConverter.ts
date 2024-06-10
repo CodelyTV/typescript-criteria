@@ -1,4 +1,4 @@
-import { Criteria, Filter } from "@codely/criteria";
+import { Criteria, Filter } from "@codelytv/criteria";
 
 type Mappings = { [key: string]: string };
 

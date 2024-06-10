@@ -1,5 +1,5 @@
 {
-	"name": "@codely/criteria-elasticsearch",
+	"name": "@codelytv/criteria-elasticsearch",
 	"version": "1.0.0",
 	"description": "",
 	"keywords": [],
@@ -12,9 +12,9 @@
 		"build": "tsc --build --verbose tsconfig.json"
 	},
 	"dependencies": {
-		"@codely/criteria": "workspace:*"
+		"@codelytv/criteria": "workspace:*"
 	},
 	"devDependencies": {
-		"@codely/criteria-mother": "workspace:*"
+		"@codelytv/criteria-mother": "workspace:*"
 	}
 }

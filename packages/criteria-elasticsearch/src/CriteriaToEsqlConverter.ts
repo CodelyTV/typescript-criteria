@@ -1,4 +1,4 @@
-import { Criteria, Filter } from "@codely/criteria";
+import { Criteria, Filter } from "@codelytv/criteria";
 
 export class CriteriaToEsqlConverter {
 	convert(indexName: string, criteria: Criteria): string {

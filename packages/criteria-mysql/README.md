@@ -19,5 +19,5 @@
 ## 📥 Installation
 
 ```sh
-npm i @codely/criteria-mysql
+npm i @codelytv/criteria-mysql
 ```
