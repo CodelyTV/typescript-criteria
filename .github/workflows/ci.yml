@@ -34,3 +34,6 @@ jobs:
 
       - name: ✅ Test
         run: pnpm run test
+
+      - name: 👀 Ensure a changeset is present
+        run: pnpm changeset status --since=main
