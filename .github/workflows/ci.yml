@@ -15,6 +15,8 @@ jobs:
     steps:
       - name: 👍 Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: 🐢 Setup node.js
         uses: actions/setup-node@v4
@@ -34,3 +36,6 @@ jobs:
 
       - name: ✅ Test
         run: pnpm run test
+
+      - name: 👀 Ensure a changeset is present
+        run: pnpm changeset status --since=origin/main

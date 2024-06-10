@@ -33,13 +33,12 @@ You can also create your custom transformer.
 
 ## 🚀 Release
 
-### Existing packages
+1. At the end of each Pull Request, execute `pnpm changeset` to add the changes to the changelog.
+2. Push the changes.
+3. When the Pull Request is merged, a new release will be triggered, affecting only the modified packages.
 
-At the end of every Pull Request you should execute `pnpm changeset` in order to add the changes to the changelog.
-This will control the versioning and then will release the package.
-
-### New packages
-First you need to `cd` to its directory and execute `npm publish`
+If you want to merge a code without a changeset (for example, a Readme or test modification) you should execute
+`pnpm changeset --empty` in your Pull Request before merging it.
 
 ## ✅ Testing
 To facilitate testing of the criteria, you can use the provided [object mothers](https://www.martinfowler.com/bliki/ObjectMother.html):
