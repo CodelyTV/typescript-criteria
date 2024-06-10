@@ -1,7 +1,6 @@
+import { Criteria, FiltersPrimitives } from "@codely-criteria/criteria";
 import { faker } from "@faker-js/faker";
 
-import { Criteria } from "../src/Criteria";
-import { FiltersPrimitives } from "../src/Filter";
 import { FiltersMother } from "./FiltersMother";
 import { OrderMother } from "./OrderMother";
 

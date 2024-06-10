@@ -9,9 +9,12 @@
 		"module": "esnext",
 		"moduleResolution": "node",
 		"resolveJsonModule": true,
+		"noEmit": false,
 		"skipLibCheck": true,
 		"strict": true,
+		"incremental": false,
+		"declaration": true,
 		"exactOptionalPropertyTypes": true,
-		"target": "es5"
+		"target": "es2020",
 	}
 }

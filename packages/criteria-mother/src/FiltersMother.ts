@@ -1,5 +1,5 @@
-import { Filter } from "../src/Filter";
-import { Filters } from "../src/Filters";
+import { Filter, Filters } from "@codely-criteria/criteria";
+
 import { FilterMother } from "./FilterMother";
 
 export class FiltersMother {

@@ -1,7 +1,5 @@
+import { Order, OrderTypes } from "@codely-criteria/criteria";
 import { faker } from "@faker-js/faker";
-
-import { Order } from "../src/Order";
-import { OrderTypes } from "../src/OrderType";
 
 type OrderPrimitives = {
 	orderBy: string | null;

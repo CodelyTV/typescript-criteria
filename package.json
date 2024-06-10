@@ -6,22 +6,19 @@
 		"node": ">=20"
 	},
 	"scripts": {
-		"test": "npm run test --workspaces",
-		"build": "npm run build --workspaces"
+		"test": "pnpm -r run test",
+		"build": "pnpm -r run build"
 	},
 	"keywords": [
 		"criteria",
 		"mysql"
 	],
-	"workspaces": [
-		"criteria"
-	],
 	"author": "Codely (www.codely.com)",
 	"license": "SEE LICENSE IN LICENSE",
 	"devDependencies": {
-		"@faker-js/faker": "^8.3.1",
 		"eslint-config-codely": "^3.1.4",
+		"typescript": "^5.3.3",
 		"tsx": "^4.13.2",
-		"typescript": "^5.3.3"
+		"@types/node": "20"
 	}
 }

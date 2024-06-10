@@ -5,12 +5,14 @@
 	"overrides": [
 		{
 			"files": [
-				"*.ts",
-				"*.tsx"
+				"*.ts"
 			],
 			"parserOptions": {
 				"project": [
-					"./tsconfig.json"
+					"./tsconfig.json",
+					"./packages/criteria/tsconfig.json",
+					"./packages/criteria-mother/tsconfig.json",
+					"./packages/criteria-mysql/tsconfig.json"
 				]
 			},
 			"rules": {

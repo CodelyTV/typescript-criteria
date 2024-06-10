@@ -1,7 +1,5 @@
+import { Filter, FiltersPrimitives, Operator } from "@codely-criteria/criteria";
 import { faker } from "@faker-js/faker";
-
-import { Filter, FiltersPrimitives } from "../src/Filter";
-import { Operator } from "../src/FilterOperator";
 
 export class FilterMother {
 	static create(params?: Partial<FiltersPrimitives>): Filter {
