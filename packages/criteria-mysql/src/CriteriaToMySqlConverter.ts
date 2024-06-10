@@ -2,7 +2,7 @@ import { Criteria, Filter } from "@codely/criteria";
 
 type Mappings = { [key: string]: string };
 
-export class CriteriaToMySqlQueryConverter {
+export class CriteriaToMySqlConverter {
 	convert(
 		fieldsToSelect: string[],
 		tableName: string,

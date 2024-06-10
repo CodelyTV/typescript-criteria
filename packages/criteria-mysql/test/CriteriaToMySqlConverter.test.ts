@@ -3,10 +3,10 @@ import { describe, it } from "node:test";
 
 import { CriteriaMother } from "@codely/criteria-mother";
 
-import { CriteriaToMySqlQueryConverter } from "../src";
+import { CriteriaToMySqlConverter } from "../src";
 
-describe("CriteriaToMySqlQueryConverter should", () => {
-	const converter = new CriteriaToMySqlQueryConverter();
+describe("CriteriaToMySqlConverter should", () => {
+	const converter = new CriteriaToMySqlConverter();
 
 	it("Generate simple select with an empty criteria", () => {
 		const actualQuery = converter.convert(["id", "name"], "users", CriteriaMother.empty());

@@ -1,1 +1,1 @@
-export * from "./CriteriaToMySqlQueryConverter";
+export * from "./CriteriaToMySqlConverter";
