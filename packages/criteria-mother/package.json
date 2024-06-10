@@ -11,7 +11,7 @@
 		"build": "tsc --build --verbose tsconfig.json"
 	},
 	"dependencies": {
-		"@codelytv/criteria": "workspace:*",
+		"@codelytv/criteria": "workspace:^",
 		"@faker-js/faker": "^8.3.1"
 	}
 }

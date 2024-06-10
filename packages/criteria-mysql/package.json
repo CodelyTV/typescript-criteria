@@ -12,9 +12,9 @@
 		"build": "tsc --build --verbose tsconfig.json"
 	},
 	"dependencies": {
-		"@codelytv/criteria": "workspace:*"
+		"@codelytv/criteria": "workspace:^"
 	},
 	"devDependencies": {
-		"@codelytv/criteria-mother": "workspace:*"
+		"@codelytv/criteria-mother": "workspace:^"
 	}
 }
