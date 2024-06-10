@@ -1,11 +1,15 @@
 {
 	"name": "@codely/criteria-monorepo",
+	"version": "1.0.0",
 	"private": true,
 	"author": "Codely (www.codely.com)",
 	"license": "SEE LICENSE IN LICENSE",
 	"engines": {
 		"node": ">=20"
 	},
+	"workspaces": [
+		"packages/*"
+	],
 	"scripts": {
 		"test": "pnpm -r run test",
 		"build": "pnpm -r run build"

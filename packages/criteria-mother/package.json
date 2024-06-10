@@ -1,6 +1,6 @@
 {
 	"name": "@codely/criteria-mother",
-	"version": "1.0.0",
+	"version": "workspace:*",
 	"description": "",
 	"keywords": [],
 	"author": "Codely (www.codely.com)",
