@@ -8,51 +8,65 @@ export class CriteriaToMySqlConverter {
 		tableName: string,
 		criteria: Criteria,
 		mappings: Mappings = {},
-	): string {
+	): { query: string; params: (string | number)[] } {
 		let query = `SELECT ${fieldsToSelect.join(", ")} FROM ${tableName}`;
+		const params: (string | number)[] = [];
 
 		if (criteria.hasFilters()) {
-			query = query.concat(" WHERE ");
+			query += " WHERE ";
 
-			const whereQuery = criteria.filters.value.map((filter) =>
-				this.generateWhereQuery(filter, mappings),
+			const whereQueries = criteria.filters.value.map((filter) =>
+				this.generateWhereQuery(filter, mappings, params),
 			);
 
-			query = query.concat(whereQuery.join(" AND "));
+			query += whereQueries.join(" AND ");
 		}
 
 		if (criteria.hasOrder()) {
-			query = query.concat(
-				` ORDER BY ${criteria.order.orderBy.value} ${criteria.order.orderType.value.valueOf()}`,
-			);
+			query += " ORDER BY ? ?";
+
+			params.push(criteria.order.orderBy.value, criteria.order.orderType.value);
 		}
 
 		if (criteria.pageSize !== null) {
-			query = query.concat(` LIMIT ${criteria.pageSize}`);
+			query += " LIMIT ?";
+
+			params.push(criteria.pageSize);
 		}
 
 		if (criteria.pageSize !== null && criteria.pageNumber !== null) {
-			query = query.concat(` OFFSET ${criteria.pageSize * (criteria.pageNumber - 1)}`);
+			query += " OFFSET ?";
+
+			params.push(criteria.pageSize * (criteria.pageNumber - 1));
 		}
 
-		return `${query};`;
+		return { query: `${query};`, params };
 	}
 
-	private generateWhereQuery(filter: Filter, mappings: Mappings = {}) {
+	private generateWhereQuery(
+		filter: Filter,
+		mappings: Mappings = {},
+		params: (string | number)[],
+	): string {
 		const field = mappings[filter.field.value] || filter.field.value;
 
+		let queryPart = `${field} `;
+		const value = filter.value.value;
+
 		if (filter.operator.isContains()) {
-			return `${field} LIKE '%${filter.value.value}%'`;
+			queryPart += "LIKE ?";
+			params.push(`%${value}%`);
+		} else if (filter.operator.isNotContains()) {
+			queryPart += "NOT LIKE ?";
+			params.push(`%${value}%`);
+		} else if (filter.operator.isNotEquals()) {
+			queryPart += "!= ?";
+			params.push(value);
+		} else {
+			queryPart += `${filter.operator.value} ?`;
+			params.push(value);
 		}
 
-		if (filter.operator.isNotContains()) {
-			return `${field} NOT LIKE '%${filter.value.value}%'`;
-		}
-
-		if (filter.operator.isNotEquals()) {
-			return `${field} != '${filter.value.value}'`;
-		}
-
-		return `${field} ${filter.operator.value} '${filter.value.value}'`;
+		return queryPart;
 	}
 }

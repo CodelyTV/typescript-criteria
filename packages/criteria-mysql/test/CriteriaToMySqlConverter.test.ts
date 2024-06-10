@@ -11,7 +11,7 @@ describe("CriteriaToMySqlConverter should", () => {
 	it("Generate simple select with an empty criteria", () => {
 		const actualQuery = converter.convert(["id", "name"], "users", CriteriaMother.empty());
 
-		assert.equal(actualQuery, "SELECT id, name FROM users;");
+		assert.deepEqual(actualQuery, { query: "SELECT id, name FROM users;", params: [] });
 	});
 
 	it("Generate select with order", () => {
@@ -21,7 +21,10 @@ describe("CriteriaToMySqlConverter should", () => {
 			CriteriaMother.emptySorted("id", "DESC"),
 		);
 
-		assert.equal(actualQuery, "SELECT id, name FROM users ORDER BY id DESC;");
+		assert.deepEqual(actualQuery, {
+			query: "SELECT id, name FROM users ORDER BY ? ?;",
+			params: ["id", "DESC"],
+		});
 	});
 
 	it("Generate select with one filter", () => {
@@ -31,7 +34,10 @@ describe("CriteriaToMySqlConverter should", () => {
 			CriteriaMother.withOneFilter("name", "EQUAL", "Javier"),
 		);
 
-		assert.equal(actualQuery, "SELECT id, name FROM users WHERE name = 'Javier';");
+		assert.deepEqual(actualQuery, {
+			query: "SELECT id, name FROM users WHERE name = ?;",
+			params: ["Javier"],
+		});
 	});
 
 	it("Generate select with one filter sorted", () => {
@@ -41,10 +47,10 @@ describe("CriteriaToMySqlConverter should", () => {
 			CriteriaMother.withOneFilterSorted("name", "EQUAL", "Javier", "id", "DESC"),
 		);
 
-		assert.equal(
-			actualQuery,
-			"SELECT id, name FROM users WHERE name = 'Javier' ORDER BY id" + " DESC;",
-		);
+		assert.deepEqual(actualQuery, {
+			query: "SELECT id, name FROM users WHERE name = ? ORDER BY ? ?;",
+			params: ["Javier", "id", "DESC"],
+		});
 	});
 
 	it("Generate select with multiples filters", () => {
@@ -71,10 +77,10 @@ describe("CriteriaToMySqlConverter should", () => {
 			}),
 		);
 
-		assert.equal(
-			actualQuery,
-			"SELECT id, name, email FROM users WHERE name = 'Javier' AND email = 'javier@terra.es';",
-		);
+		assert.deepEqual(actualQuery, {
+			query: "SELECT id, name, email FROM users WHERE name = ? AND email = ?;",
+			params: ["Javier", "javier@terra.es"],
+		});
 	});
 
 	it("Generate select with multiples filters and sort", () => {
@@ -101,10 +107,10 @@ describe("CriteriaToMySqlConverter should", () => {
 			}),
 		);
 
-		assert.equal(
-			actualQuery,
-			"SELECT id, name, email FROM users WHERE name = 'Javier' AND email = 'javier@terra.es' ORDER BY id DESC;",
-		);
+		assert.deepEqual(actualQuery, {
+			query: "SELECT id, name, email FROM users WHERE name = ? AND email = ? ORDER BY ? ?;",
+			params: ["Javier", "javier@terra.es", "id", "DESC"],
+		});
 	});
 
 	it("Generate select with one contains filter", () => {
@@ -114,7 +120,10 @@ describe("CriteriaToMySqlConverter should", () => {
 			CriteriaMother.withOneFilter("name", "CONTAINS", "Javier"),
 		);
 
-		assert.equal(actualQuery, "SELECT id, name FROM users WHERE name LIKE '%Javier%';");
+		assert.deepEqual(actualQuery, {
+			query: "SELECT id, name FROM users WHERE name LIKE ?;",
+			params: ["%Javier%"],
+		});
 	});
 
 	it("Generate select with one not contains filter", () => {
@@ -124,7 +133,10 @@ describe("CriteriaToMySqlConverter should", () => {
 			CriteriaMother.withOneFilter("name", "NOT_CONTAINS", "Javier"),
 		);
 
-		assert.equal(actualQuery, "SELECT id, name FROM users WHERE name NOT LIKE '%Javier%';");
+		assert.deepEqual(actualQuery, {
+			query: "SELECT id, name FROM users WHERE name NOT LIKE ?;",
+			params: ["%Javier%"],
+		});
 	});
 
 	it("Generate simple select paginated", () => {
@@ -134,7 +146,10 @@ describe("CriteriaToMySqlConverter should", () => {
 			CriteriaMother.emptyPaginated(10, 3),
 		);
 
-		assert.equal(actualQuery, "SELECT id, name FROM users LIMIT 10 OFFSET 20;");
+		assert.deepEqual(actualQuery, {
+			query: "SELECT id, name FROM users LIMIT ? OFFSET ?;",
+			params: [10, 20],
+		});
 	});
 
 	it("Generate select with not contains filter", () => {
@@ -144,7 +159,10 @@ describe("CriteriaToMySqlConverter should", () => {
 			CriteriaMother.withOneFilter("name", "NOT_CONTAINS", "Javier"),
 		);
 
-		assert.equal(actualQuery, "SELECT id, name FROM users WHERE name NOT LIKE '%Javier%';");
+		assert.deepEqual(actualQuery, {
+			query: "SELECT id, name FROM users WHERE name NOT LIKE ?;",
+			params: ["%Javier%"],
+		});
 	});
 
 	it("Generate select with not equals filter", () => {
@@ -154,7 +172,10 @@ describe("CriteriaToMySqlConverter should", () => {
 			CriteriaMother.withOneFilter("name", "NOT_EQUAL", "Javier"),
 		);
 
-		assert.equal(actualQuery, "SELECT id, name FROM users WHERE name != 'Javier';");
+		assert.deepEqual(actualQuery, {
+			query: "SELECT id, name FROM users WHERE name != ?;",
+			params: ["Javier"],
+		});
 	});
 
 	it("Generate select with one filter with a different name in the query", () => {
@@ -165,6 +186,9 @@ describe("CriteriaToMySqlConverter should", () => {
 			{ fullname: "name" },
 		);
 
-		assert.equal(actualQuery, "SELECT id, name FROM users WHERE name = 'Javier';");
+		assert.deepEqual(actualQuery, {
+			query: "SELECT id, name FROM users WHERE name = ?;",
+			params: ["Javier"],
+		});
 	});
 });
