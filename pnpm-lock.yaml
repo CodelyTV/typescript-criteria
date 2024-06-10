@@ -27,6 +27,16 @@ importers:
         specifier: ^8.3.1
         version: 8.4.1
 
+  packages/criteria-elasticsearch:
+    dependencies:
+      '@codely/criteria':
+        specifier: workspace:*
+        version: link:../criteria
+    devDependencies:
+      '@codely/criteria-mother':
+        specifier: workspace:*
+        version: link:../criteria-mother
+
   packages/criteria-mother:
     dependencies:
       '@codely/criteria':
