@@ -1,4 +1,4 @@
-# @codelytv/criteria-mysql
+# @codelytv/criteria-to-mysql
 
 ## 1.1.2
 

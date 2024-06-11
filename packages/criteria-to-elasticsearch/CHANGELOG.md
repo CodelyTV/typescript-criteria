@@ -1,4 +1,4 @@
-# @codelytv/criteria-mother
+# @codelytv/criteria-to-elasticsearch
 
 ## 1.0.3
 

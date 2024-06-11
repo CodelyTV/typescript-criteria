@@ -1,10 +1,10 @@
 {
-	"name": "@codelytv/criteria-mother",
+	"name": "@codelytv/criteria-test-mother",
 	"version": "1.0.3",
 	"description": "",
 	"keywords": [],
-	"author": "Codely (www.codely.com)",
-	"license": "SEE LICENSE IN LICENSE",
+	"author": "Codely (https://codely.com)",
+	"license": "MIT",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"scripts": {

@@ -30,17 +30,7 @@ importers:
         specifier: ^8.3.1
         version: 8.4.1
 
-  packages/criteria-elasticsearch:
-    dependencies:
-      '@codelytv/criteria':
-        specifier: workspace:^
-        version: link:../criteria
-    devDependencies:
-      '@codelytv/criteria-mother':
-        specifier: workspace:^
-        version: link:../criteria-mother
-
-  packages/criteria-mother:
+  packages/criteria-test-mother:
     dependencies:
       '@codelytv/criteria':
         specifier: workspace:^
@@ -49,15 +39,25 @@ importers:
         specifier: ^8.3.1
         version: 8.4.1
 
-  packages/criteria-mysql:
+  packages/criteria-to-elasticsearch:
     dependencies:
       '@codelytv/criteria':
         specifier: workspace:^
         version: link:../criteria
     devDependencies:
-      '@codelytv/criteria-mother':
+      '@codelytv/criteria-test-mother':
         specifier: workspace:^
-        version: link:../criteria-mother
+        version: link:../criteria-test-mother
+
+  packages/criteria-to-mysql:
+    dependencies:
+      '@codelytv/criteria':
+        specifier: workspace:^
+        version: link:../criteria
+    devDependencies:
+      '@codelytv/criteria-test-mother':
+        specifier: workspace:^
+        version: link:../criteria-test-mother
 
 packages:
 

@@ -1,8 +1,8 @@
 {
 	"name": "@codelytv/criteria-monorepo",
 	"private": true,
-	"author": "Codely (www.codely.com)",
-	"license": "SEE LICENSE IN LICENSE",
+	"author": "Codely (https://codely.com)",
+	"license": "MIT",
 	"engines": {
 		"node": ">=20"
 	},
