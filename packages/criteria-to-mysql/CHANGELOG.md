@@ -1,5 +1,16 @@
 # @codelytv/criteria-to-mysql
 
+## 2.0.0
+
+### Major Changes
+
+- be55726: rename packages
+
+### Patch Changes
+
+- Updated dependencies [be55726]
+  - @codelytv/criteria@2.0.0
+
 ## 1.1.2
 
 ### Patch Changes
