@@ -1,0 +1,22 @@
+{
+	"name": "@codelytv/criteria-from-next-request",
+	"version": "0.0.1",
+	"description": "",
+	"keywords": [],
+	"author": "Codely (https://codely.com)",
+	"license": "MIT",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"test": "node --import tsx --test test/*.test.ts",
+		"build": "tsc --build --verbose tsconfig.json"
+	},
+	"dependencies": {
+		"@codelytv/criteria": "workspace:^",
+		"@codelytv/criteria-from-url": "workspace:^",
+		"next": ">=13.0.0"
+	},
+	"devDependencies": {
+		"@codelytv/criteria-test-mother": "workspace:^"
+	}
+}
