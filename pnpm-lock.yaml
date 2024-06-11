@@ -30,6 +30,16 @@ importers:
         specifier: ^8.3.1
         version: 8.4.1
 
+  packages/criteria-from-url:
+    dependencies:
+      '@codelytv/criteria':
+        specifier: workspace:^
+        version: link:../criteria
+    devDependencies:
+      '@codelytv/criteria-test-mother':
+        specifier: workspace:^
+        version: link:../criteria-test-mother
+
   packages/criteria-test-mother:
     dependencies:
       '@codelytv/criteria':
