@@ -9,7 +9,7 @@
 </p>
 
 <h1 align="center">
-  🎼 Criteria to MySql converter
+  🎼 Criteria to Elasticsearch (and esql) converter
 </h1>
 
 <p align="center">
@@ -19,5 +19,5 @@
 ## 📥 Installation
 
 ```sh
-npm i @codelytv/criteria-mysql
+npm i @codelytv/criteria-to-elasticsearch
 ```

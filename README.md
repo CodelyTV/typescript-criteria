@@ -44,5 +44,5 @@ If you want to merge a code without a changeset (for example, a Readme or test m
 To facilitate testing of the criteria, you can use the provided [object mothers](https://www.martinfowler.com/bliki/ObjectMother.html):
 
 ```sh
-npm i @codelytv/criteria-mother -D
+npm i @codelytv/criteria-test-mother -D
 ```

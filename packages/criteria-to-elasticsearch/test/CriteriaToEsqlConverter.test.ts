@@ -1,26 +1,23 @@
 import assert from "node:assert";
 import { describe, it } from "node:test";
 
-import { CriteriaMother } from "@codelytv/criteria-mother";
+import { CriteriaMother } from "@codelytv/criteria-test-mother";
 
-import { CriteriaToElasticsearchConverter } from "../src";
+import { CriteriaToEsqlConverter } from "../src";
 
-describe("CriteriaToElasticsearchConverter should", () => {
-	const converter = new CriteriaToElasticsearchConverter();
+describe("CriteriaToEsqlConverter should", () => {
+	const converter = new CriteriaToEsqlConverter();
 
 	it("Generate simple select with an empty criteria", () => {
 		const actualQuery = converter.convert("users", CriteriaMother.empty());
 
-		assert.deepEqual(actualQuery, { index: "users", body: { query: { bool: {} } } });
+		assert.equal(actualQuery, "FROM users");
 	});
 
 	it("Generate select with order", () => {
 		const actualQuery = converter.convert("users", CriteriaMother.emptySorted("id", "DESC"));
 
-		assert.deepEqual(actualQuery, {
-			index: "users",
-			body: { query: { bool: {} }, sort: [{ id: { order: "desc" } }] },
-		});
+		assert.equal(actualQuery, "FROM users | SORT id DESC");
 	});
 
 	it("Generate select with one filter", () => {
@@ -29,10 +26,7 @@ describe("CriteriaToElasticsearchConverter should", () => {
 			CriteriaMother.withOneFilter("name", "EQUAL", "Javier"),
 		);
 
-		assert.deepEqual(actualQuery, {
-			index: "users",
-			body: { query: { bool: { must: [{ match: { name: "Javier" } }] } } },
-		});
+		assert.equal(actualQuery, `FROM users | WHERE name = "Javier"`);
 	});
 
 	it("Generate select with one filter sorted", () => {
@@ -41,13 +35,7 @@ describe("CriteriaToElasticsearchConverter should", () => {
 			CriteriaMother.withOneFilterSorted("name", "EQUAL", "Javier", "id", "DESC"),
 		);
 
-		assert.deepEqual(actualQuery, {
-			index: "users",
-			body: {
-				query: { bool: { must: [{ match: { name: "Javier" } }] } },
-				sort: [{ id: { order: "desc" } }],
-			},
-		});
+		assert.equal(actualQuery, `FROM users | WHERE name = "Javier" | SORT id DESC`);
 	});
 
 	it("Generate select with multiples filters", () => {
@@ -73,14 +61,7 @@ describe("CriteriaToElasticsearchConverter should", () => {
 			}),
 		);
 
-		assert.deepEqual(actualQuery, {
-			index: "users",
-			body: {
-				query: {
-					bool: { must: [{ match: { name: "Javier" } }, { match: { email: "javier@terra.es" } }] },
-				},
-			},
-		});
+		assert.equal(actualQuery, `FROM users | WHERE name = "Javier" AND email = "javier@terra.es"`);
 	});
 
 	it("Generate select with multiples filters and sort", () => {
@@ -106,15 +87,10 @@ describe("CriteriaToElasticsearchConverter should", () => {
 			}),
 		);
 
-		assert.deepEqual(actualQuery, {
-			index: "users",
-			body: {
-				query: {
-					bool: { must: [{ match: { name: "Javier" } }, { match: { email: "javier@terra.es" } }] },
-				},
-				sort: [{ id: { order: "desc" } }],
-			},
-		});
+		assert.equal(
+			actualQuery,
+			`FROM users | WHERE name = "Javier" AND email = "javier@terra.es" | SORT id DESC`,
+		);
 	});
 
 	it("Generate select with one contains filter", () => {
@@ -123,10 +99,7 @@ describe("CriteriaToElasticsearchConverter should", () => {
 			CriteriaMother.withOneFilter("name", "CONTAINS", "Javier"),
 		);
 
-		assert.deepEqual(actualQuery, {
-			index: "users",
-			body: { query: { bool: { must: [{ match_phrase_prefix: { name: "Javier" } }] } } },
-		});
+		assert.equal(actualQuery, `FROM users | WHERE name LIKE "*Javier*"`);
 	});
 
 	it("Generate select with one not contains filter", () => {
@@ -135,18 +108,12 @@ describe("CriteriaToElasticsearchConverter should", () => {
 			CriteriaMother.withOneFilter("name", "NOT_CONTAINS", "Javier"),
 		);
 
-		assert.deepEqual(actualQuery, {
-			index: "users",
-			body: { query: { bool: { must: [{ bool: { must_not: { match: { name: "Javier" } } } }] } } },
-		});
+		assert.equal(actualQuery, `FROM users | WHERE name NOT LIKE "*Javier*"`);
 	});
 
 	it("Generate simple select paginated", () => {
 		const actualQuery = converter.convert("users", CriteriaMother.emptyPaginated(10, 3));
 
-		assert.deepEqual(actualQuery, {
-			index: "users",
-			body: { query: { bool: {} }, size: 10, from: 20 },
-		});
+		assert.equal(actualQuery, "FROM users | LIMIT 10");
 	});
 });
