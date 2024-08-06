@@ -21,3 +21,7 @@
 ```sh
 npm i @codelytv/criteria-from-next-request
 ```
+
+## 💻 Usage
+
+The criteria converter expect an url [with the following format](../criteria-from-url).
