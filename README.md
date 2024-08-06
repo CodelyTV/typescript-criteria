@@ -13,7 +13,8 @@
 </h1>
 
 <p align="center">
-    <a href="https://github.com/CodelyTV"><img src="https://img.shields.io/badge/Codely-OS-green.svg?style=flat-square" alt="codely.com"/></a>
+    <a href="https://github.com/CodelyTV"><img src="https://img.shields.io/badge/Codely-OS-green.svg?style=flat-square" alt="Codely Open Source projects"/></a>
+    <a href="https://pro.codely.com"><img src="https://img.shields.io/badge/Codely-Pro-black.svg?style=flat-square" alt="Codely Pro courses"/></a>
 </p>
 
 ## 📥 Installation
@@ -23,13 +24,24 @@ To install the base criteria dependency, run the following command:
 npm i @codelytv/criteria
 ```
 
-Then, install the preferred criteria transformer:
-- [Elasticsearch (and esql)](./packages/criteria-elasticsearch)
-- [MySql](./packages/criteria-mysql)
+Then, install the preferred criteria transformer. You can transform in two directions:
+
+Create a Criteria from:
+- [Next.js Request](./packages/criteria-from-next-request)
+- [URL](./packages/criteria-from-url)
+
+Convert a Criteria to:
+- [Elasticsearch (and esql)](./packages/criteria-to-elasticsearch)
+- [MySql](./packages/criteria-to-mysql)
 
 You can also create your custom transformer.
 
-## 💻 Usage
+### ✅ Testing
+To facilitate the testing of the criteria, you can use the provided [object mothers](https://www.martinfowler.com/bliki/ObjectMother.html):
+
+```sh
+npm i @codelytv/criteria-test-mother --save-dev
+```
 
 ## 🚀 Release
 
@@ -39,10 +51,3 @@ You can also create your custom transformer.
 
 If you want to merge a code without a changeset (for example, a Readme or test modification) you should execute
 `pnpm changeset --empty` in your Pull Request before merging it.
-
-## ✅ Testing
-To facilitate testing of the criteria, you can use the provided [object mothers](https://www.martinfowler.com/bliki/ObjectMother.html):
-
-```sh
-npm i @codelytv/criteria-test-mother -D
-```
