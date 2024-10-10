@@ -43,6 +43,9 @@ To facilitate the testing of the criteria, you can use the provided [object moth
 npm i @codelytv/criteria-test-mother --save-dev
 ```
 
+## ➕ Other implementations
+We have [another implementation in PHP](https://github.com/CodelyTV/php-criteria) with converters for Laravel and Symfony. 🙌
+
 ## 🚀 Release
 
 1. At the end of each Pull Request, execute `pnpm changeset` to add the changes to the changelog.
