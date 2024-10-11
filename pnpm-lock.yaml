@@ -75,6 +75,16 @@ importers:
         specifier: workspace:^
         version: link:../criteria-test-mother
 
+  packages/criteria-to-mongo:
+    dependencies:
+      '@codelytv/criteria':
+        specifier: workspace:^
+        version: link:../criteria
+    devDependencies:
+      '@codelytv/criteria-test-mother':
+        specifier: workspace:^
+        version: link:../criteria-test-mother
+
   packages/criteria-to-mysql:
     dependencies:
       '@codelytv/criteria':
