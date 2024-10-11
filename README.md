@@ -33,6 +33,7 @@ Create a Criteria from:
 Convert a Criteria to:
 - [Elasticsearch (and esql)](./packages/criteria-to-elasticsearch)
 - [MySql](./packages/criteria-to-mysql)
+- [MongoDB](./packages/criteria-to-mongo)
 
 You can also create your custom transformer.
 
